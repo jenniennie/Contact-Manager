@@ -1,12 +1,12 @@
 <?php
 	$inData = getRequestInfo();
 
-	$userId = $inData["userId"];
+	$UserId = $inData["UserId"];
 	$FirstName = $inData["FirstName"];
 	$LastName = $inData["LastName"];
 	$Email = $inData["Email"];
 	$Phone = $inData["Phone"];
-	$today = date("Y-m-d H:i:s"); 
+	$today = date("Y-m-d H:i:s");
 	$DateCreated = $today;
 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
@@ -16,8 +16,8 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("INSERT into Contacts (UserId,FirstName,LastName,Email,Phone,DateCreated) VALUES(?,?,?,?,?,?)");
-		$stmt->bind_param("ssssss", $userId, $FirstName, $LastName, $Email, $Phone, $DateCreated);
+		$stmt = $conn->prepare("INSERT into ContactList (UserId,FirstName,LastName,Email,Phone,DateCreated) VALUES(?,?,?,?,?,?)");
+		$stmt->bind_param("isssss", $UserId, $FirstName, $LastName, $Email, $Phone, $DateCreated);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();
