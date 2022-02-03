@@ -16,12 +16,15 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("INSERT into ContactList (UserId,FirstName,LastName,Email,Phone,DateCreated) VALUES(?,?,?,?,?,?)");
-		$stmt->bind_param("isssss", $UserId, $FirstName, $LastName, $Email, $Phone, $DateCreated);
+		$stmt = $conn->prepare("INSERT into ContactList (UserId,FirstName,LastName,Email,Phone,DateCreated) VALUES (?,?,?,?,?,?)");
+		$stmt->bind_param("ssssss", $UserId, $FirstName, $LastName, $Email, $Phone, $DateCreated);
 		$stmt->execute();
+		
+		returnWithInfo( $UserId, $FirstName, $LastName, $Email, $Phone, $DateCreated );
+		
 		$stmt->close();
 		$conn->close();
-		returnWithError("");
+		//returnWithError("");
 	}
 
 	function getRequestInfo()
@@ -38,6 +41,12 @@
 	function returnWithError( $err )
 	{
 		$retValue = '{"error":"' . $err . '"}';
+		sendResultInfoAsJson( $retValue );
+	}
+	
+	function returnWithInfo( $UserId, $FirstName, $LastName, $Email, $Phone, $DateCreated )
+	{
+		$retValue = '{"UserId":"' . $UserId . '","FirstName":"' . $FirstName . '","LastName":"' . $LastName . '","Email":"' . $Email . '","Phone":"' . $Phone . '","DateCreated":"' . $DateCreated . '","error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 	
