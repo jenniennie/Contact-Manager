@@ -17,7 +17,10 @@
 	} 
 	else 
 	{
-		$sql = "SELECT * FROM contacts WHERE name like '%$search%'";
+		$search = $_POST['search'];
+		$search = preg_replace("#[^0-9a-z] #i","",$search);
+		$sql = "SELECT * FROM contacts WHERE FirstName like '%$search%', LastName like '%search%', 
+		Email like '%search%', Phone like '%search%'";
 		$result = $conn->query($sql);
 		returnWithError("");
 	}	
