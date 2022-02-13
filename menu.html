@@ -33,7 +33,6 @@
     body 
     { 
       background-color:black; 
-    
       font-family: Impact, sans-serif;
     }
     nav
@@ -63,7 +62,7 @@
 			<div class="container mb-3">
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Contact</button>&emsp;
 				<button style="background-color:#d8330a;" type="button" id="doDelete" class="btn btn-primary" onclick="doDelete();">Delete Selected Item(s)</button>&emsp;
-                <button style="background-color:#e27e04;" type="button" id="edit" class="btn btn-primary" onclick="edit();">Edit Contact</button>&emsp;
+                <button style="background-color:#e27e04;" type="button" id="edit" class="btn btn-primary" data-toggle="modal" data-target="#editModal" onclick="edit();">Edit Contact</button>&emsp;
 			</div>
 		</div>
 		
@@ -108,8 +107,40 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-					<button type="button" id="addButton" class="btn btn-primary" onClick="add();">Add to List</button><br>
+					<button type="button" id="addButton" class="btn btn-primary" onClick="add();">Add Contact</button><br>
 					<span id="addContactResult"></span>
+				</div>
+			</div>
+		</div>
+	</div>	
+
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="editModalLabel">Edit Contact</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Cancel">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="mb-3 mt-3 w-75">
+                                <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                        </div>
+                        <div class="mb-3 w-75">
+                                <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                        </div>
+                        <div class="mb-3 w-75">
+                                <input type="text" class="form-control" id="phoneNumber" placeholder="xxx-xxx-xxxx">
+                        </div>
+                        <div class="mb-3 w-75">
+                                <input type="text" class="form-control" id="email" placeholder="example@email.com">
+                        </div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					<button type="button" id="editButton" class="btn btn-primary" onClick="edit();">Done</button><br>
+					<span id="updateContactResult"></span>
 				</div>
 			</div>
 		</div>
