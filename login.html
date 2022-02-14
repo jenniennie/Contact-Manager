@@ -14,11 +14,17 @@
 <style> 
 body 
 { 
-  background-image:url('pacmangif.gif'); 
-  background-repeat:repeat; 
+  background-image:url('PacManchase.gif'); 
+  background-repeat: center; 
 
   font-family: Impact, sans-serif;
 }
+.outline
+    {
+        color: white;
+        text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+        font-size: 50px;
+    }
 </style>
 </head>
 <body>
@@ -28,22 +34,22 @@ body
               <div class="card bg-dark text-white" style="border-radius: 1rem;">
                 <div class="card-body p-5 text-center">
                   
-                  <h3 class="mb-5">TacMan</h3>
+                  <h3 class="mb-5 outline">TacMan</h3>
                   <h3 class="mb-3">Sign in</h3>
       
                   <div class="form-outline form-white mb-4">
-                    <input type="username" id="typeEmailX-2" class="form-control form-control-lg" placeholder="Username" />
+                    <input type="username" id="typeEmailX-2" class="form-control form-control-lg" placeholder="Username" required/>
                   </div>
       
                   <div class="form-outline form-white mb-4">
-                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Password" />
+                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Password" required/>
                   </div>
-      
-      
-                  <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
 
-                  <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+                 
       
+                  <button class="btn btn-primary btn-lg btn-block" type="button" id="loginButton" onclick="doLogin();">Login</button>
+				                <span id="loginResult"></span>
+                  <button class="btn btn-outline-primary btn-lg btn-block" type="button" onclick="location.href='register.html';">Register</button>
                   <hr class="my-4">
       
                 </div>
